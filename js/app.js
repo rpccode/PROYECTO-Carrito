@@ -41,8 +41,30 @@ function leerLosDatosDelCurso(curso){
             cantidad: 1,
 
         }
+        const existe =articulosCarrito.some( curso => curso.id === infoCurso.id);
+
+            if (existe) {
+                
+                const curso = articulosCarrito.map(curso => {
+                            if(curso.id === infoCurso.id)
+                            {
+                                curso.cantidad += 1;
+                                return curso;
+                            }else{
+                                return curso;
+                            }
+
+                })
+                articulosCarrito =[...curso];
+            }else{
+
+                articulosCarrito = [...articulosCarrito,infoCurso];
+
+            }
+
         
-                    articulosCarrito = [...articulosCarrito,infoCurso];
+        
+                    
 
                     console.log(articulosCarrito);
 
